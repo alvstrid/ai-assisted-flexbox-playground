@@ -1,5 +1,7 @@
 # Flexbox Playground
 
+This is a Codex project created for testing purposes.
+
 A responsive Angular and TypeScript app with three colored flex items, live controls for direction, justification, alignment and gap, generated CSS, and clipboard copying. Uses native Angular signals, templates, browser APIs, and CSS. No backend or UI libraries.
 
 ## Run
