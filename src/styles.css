@@ -1,0 +1,9 @@
+* { box-sizing: border-box; }
+:root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #262636; background: #f7f7fa; font-synthesis: none; }
+body { margin: 0; min-width: 320px; }
+button, select, input { font: inherit; }
+button, select { -webkit-tap-highlight-color: transparent; }
+button, select, input[type="range"] { cursor: pointer; }
+button:focus-visible, select:focus-visible, input:focus-visible, pre:focus-visible { outline: 3px solid #9c8bf3; outline-offset: 4px; }
+::selection { background: #dcd4ff; color: #282043; }
+

@@ -1,0 +1,75 @@
+<main class="workspace">
+  <header class="page-header">
+    <div class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div>
+      <p class="eyebrow">A LITTLE SPACE TO EXPERIMENT</p>
+      <h1>Flexbox Playground<span>.</span></h1>
+      <p class="intro">Move a few things around. Find your perfect layout.</p>
+    </div>
+    <span class="css-badge">CSS / FLEXBOX</span>
+  </header>
+
+  <div class="playground">
+    <section class="controls panel" aria-labelledby="controls-title">
+      <div class="panel-heading"><h2 id="controls-title">Layout controls</h2><span class="section-number">01</span></div>
+      <p class="panel-description">A few properties. Endless possibilities.</p>
+      <div class="control">
+        <label for="direction">flex-direction</label>
+        <p id="direction-help">Choose the direction of your items.</p>
+        <select id="direction" (change)="setDirection($event)" aria-describedby="direction-help">
+          @for (value of directions; track value) { <option [value]="value" [selected]="value === direction()">{{ value }}</option> }
+        </select>
+      </div>
+      <div class="control">
+        <label for="justify">justify-content</label>
+        <p id="justify-help">Arrange items along the main axis.</p>
+        <select id="justify" (change)="setJustification($event)" aria-describedby="justify-help">
+          @for (value of justifications; track value) { <option [value]="value" [selected]="value === justification()">{{ value }}</option> }
+        </select>
+      </div>
+      <div class="control">
+        <label for="align">align-items</label>
+        <p id="align-help">Align items along the cross axis.</p>
+        <select id="align" (change)="setAlignment($event)" aria-describedby="align-help">
+          @for (value of alignments; track value) { <option [value]="value" [selected]="value === alignment()">{{ value }}</option> }
+        </select>
+      </div>
+      <div class="control gap-control">
+        <div class="gap-label"><label for="gap">gap</label><output for="gap">{{ gap() }}<span>px</span></output></div>
+        <p id="gap-help">Give your items a little breathing room.</p>
+        <input id="gap" type="range" min="0" max="48" step="1" [value]="gap()" (input)="setGap($event)" aria-describedby="gap-help" [attr.aria-valuetext]="gap() + ' pixels'" [style.--range-progress]="(gap() / 48 * 100) + '%'">
+        <div class="range-labels" aria-hidden="true"><span>0px</span><span>48px</span></div>
+      </div>
+    </section>
+
+    <div class="result-column">
+      <section class="preview-panel panel" aria-labelledby="preview-title">
+        <div class="preview-heading"><h2 id="preview-title">Live preview</h2><span class="live-indicator"><i></i>Updates instantly</span></div>
+        <div class="preview-surface">
+          <span class="container-label">.container</span>
+          <div class="preview" [style.flex-direction]="direction()" [style.justify-content]="justification()" [style.align-items]="alignment()" [style.gap.px]="gap()" aria-label="Flex container with three numbered colored items">
+            <div class="box box-one"><span>01</span></div>
+            <div class="box box-two"><span>02</span></div>
+            <div class="box box-three"><span>03</span></div>
+          </div>
+        </div>
+        <div class="preview-footer"><span><i></i>3 flex items</span><span>Your layout, in real time</span></div>
+      </section>
+
+      <section class="code-panel" aria-labelledby="css-title">
+        <div class="code-heading"><div><span class="code-icon" aria-hidden="true">&#123; &#125;</span><h2 id="css-title">Your CSS</h2></div><button type="button" (click)="copyCss()"><svg aria-hidden="true" viewBox="0 0 20 20" fill="none"><rect x="7" y="7" width="9" height="10" rx="2"></rect><path d="M12 7V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h3"></path></svg>Copy CSS</button></div>
+        <pre tabindex="0" aria-label="Generated CSS"><code><span class="syntax-selector">.container</span> {{ '{' }}
+  <span class="syntax-property">display</span>: <span class="syntax-value">flex</span>;
+  <span class="syntax-property">flex-direction</span>: <span class="syntax-value">{{ direction() }}</span>;
+  <span class="syntax-property">justify-content</span>: <span class="syntax-value">{{ justification() }}</span>;
+  <span class="syntax-property">align-items</span>: <span class="syntax-value">{{ alignment() }}</span>;
+  <span class="syntax-property">gap</span>: <span class="syntax-number">{{ gap() }}px</span>;
+{{ '}' }}</code></pre>
+        <div class="code-footer"><span role="status">{{ copyStatus() || 'Ready to drop into your stylesheet.' }}</span><span>CSS</span></div>
+      </section>
+    </div>
+  </div>
+  <footer class="page-footer"><span>Small changes. Better layouts.</span><span>Made for the curious <span aria-hidden="true">↗</span></span></footer>
+</main>
+
+
