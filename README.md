@@ -22,3 +22,7 @@ npm run build
 Static output: `dist/flexbox-playground/browser/`. Serve this directory with a static web server. Clipboard access requires localhost or HTTPS. If browser permissions prevent copying, the app shows a message and the CSS remains selectable.
 
 
+
+## Appearance
+
+Use the **Dark mode** button to switch themes. Your choice is saved in this browser. On the first visit, the app follows your system color preference. The toggle also works when browser storage is unavailable.
