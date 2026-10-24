@@ -5,7 +5,7 @@
     "analytics": false
   },
   "projects": {
-    "flexbox-playground": {
+    "ai-assisted-flexbox-playground": {
       "projectType": "application",
       "root": "",
       "sourceRoot": "src",
@@ -19,7 +19,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "outputPath": "dist/flexbox-playground"
+            "outputPath": "dist/ai-assisted-flexbox-playground"
           },
           "configurations": {
             "production": {
@@ -42,7 +42,7 @@
         "serve": {
           "builder": "@angular/build:dev-server",
           "options": {
-            "buildTarget": "flexbox-playground:build"
+            "buildTarget": "ai-assisted-flexbox-playground:build"
           }
         }
       }
